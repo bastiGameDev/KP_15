@@ -20,8 +20,8 @@ jobs:
 
     - name: Install StyleCop.Analyzers
       run: dotnet add package StyleCop.Analyzers --version 1.2.0  
-      working-directory: ./OP.PRACTICAL_WORK_7
+      working-directory: ./OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
 
     - name: Run StyleCop
       run: dotnet build --configuration Release --no-restore /p:RunAnalyzers=true
-      working-directory: ./OP.PRACTICAL_WORK_7
+      working-directory: ./OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
