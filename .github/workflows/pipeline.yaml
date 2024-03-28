@@ -1,27 +1,29 @@
-name: Code Style Check
+name: C# Code Analysis
 
 on:
   push:
     branches:
-      - main
+      - main  
 
 jobs:
-  style_check:
-    runs-on: windows-latest
+  code_analysis:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.0'  # замените '6.0.x' на соответствующую версию .NET SDK
 
-    - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.0.100'
+      - name: Restore NuGet packages
+        run: dotnet restore
 
-    - name: Install StyleCop.Analyzers
-      run: dotnet add package StyleCop.Analyzers --version 1.2.0  
-      working-directory: ./OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
+      - name: Install Roslynator
+        run: dotnet tool install --global Roslynator.CommandLine --version 3.0.0  
 
-    - name: Run StyleCop
-      run: dotnet build --configuration Release --no-restore /p:RunAnalyzers=true
-      working-directory: ./OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
+      - name: Run Roslynator
+        run: |
+          dotnet roslynator analyze --project ./OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.csproj
