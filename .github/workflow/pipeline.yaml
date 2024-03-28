@@ -1,0 +1,25 @@
+name: Code Style Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  style_check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.100'
+
+    - name: Install StyleCop.Analyzers
+      run: dotnet add package StyleCop.Analyzers --version 1.2.0  
+      
+    - name: Run StyleCop
+      run: dotnet build --configuration Release --no-restore /p:RunAnalyzers=true
