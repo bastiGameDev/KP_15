@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OP.PRACTICAL_WORK_7.DataBaseClass">
+    <Position X="22.25" Y="5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="OP.PRACTICAL_WORK_7.DataBaseClass.act" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DataSetClass.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAEAAAAABAAAQAAQAAAECAAAQQACAAAE=</HashCode>
+      <FileName>DataSetClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OP.PRACTICAL_WORK_7.MainMenu" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAEIDCfbUiTBhAFcXSEABCsxEArAwgICAABsUJsEoEY=</HashCode>
+      <FileName>MainMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OP.PRACTICAL_WORK_7.RegistrarionWindow" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RegistrarionWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OP.PRACTICAL_WORK_7.StartWindowAuthorization" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAEAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>StartWindowAuthorization.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

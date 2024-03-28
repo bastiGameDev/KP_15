@@ -1,0 +1,151 @@
+﻿<Window x:Class="OP.PRACTICAL_WORK_7.SupplySpecialist_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OP.PRACTICAL_WORK_7"
+        mc:Ignorable="d"
+        Title="Специалист по снабжению" Height="450" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Left" >
+            <TabItem Header="Договор поставки продукции" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnDeleteContractSupProd" Content="Удалить запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Click="btnDeleteContractSupProd_Click"/>
+                    <Button x:Name="btnUpdateContractSupProd" Content="Редактировать запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Grid.Column="1" Click="btnUpdateContractSupProd_Click"/>
+                    <Button x:Name="btnAddContractSupProd" Content="Добавить запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Grid.Column="2" Click="btnAddContractSupProd_Click"/>
+                    <DataGrid Loaded="dgContractSupplyProducts_Loaded" x:Name="dgContractSupplyProducts" CanUserAddRows="False" IsReadOnly="True"  d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3" Margin="10,67,10,214" SelectionChanged="dgContractSupplyProducts_SelectionChanged"/>
+
+                    <TextBox x:Name="tbNumberContractSupplyProducts" HorizontalAlignment="Center" Margin="0,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <TextBox x:Name="tbConclusionContractSupplyProducts" HorizontalAlignment="Center" Margin="0,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <TextBox x:Name="tbSubjectContractSupplyProducts" HorizontalAlignment="Center" Margin="0,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="2"/>
+                    <TextBox x:Name="tbAmountContractSupplyProducts" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <TextBox x:Name="tbTermContractSupplyProducts" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <TextBox x:Name="tbResponbilityContractSupplyProducts" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="2"/>
+                    <TextBox x:Name="tbControversialIssuesContractSupplyProducts" HorizontalAlignment="Center" Margin="0,342,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <TextBox HorizontalAlignment="Center" Margin="0,342,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="2"  IsReadOnly="True" Background="#CCCCCC"/>
+
+                    <Label FontWeight="Bold" Content="Номер договора" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top"/>
+                    <Label FontWeight="Bold" Content="Дата заключения договора" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="Предмет заключения договора" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Label FontWeight="Bold" Content="Сумма сделки" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top"/>
+                    <Label FontWeight="Bold" Content="Срок исполнения обязательств" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="Ответственность сторон" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Label FontWeight="Bold" Content="Порядок рассмотрения споров" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top"/>
+                    <Label FontWeight="Bold" Content="Поставщик" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+
+                    <ComboBox Loaded="cbSupplier_ContractSupProd_Loaded" x:Name="cbSupplier_ContractSupProd"  Grid.Column="1" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" Width="185" Height="21" SelectionChanged="cbSupplier_ContractSupProd_SelectionChanged"/>
+                    <TextBox x:Name="txtContractSupply" TextChanged="txtContractSupply_TextChanged"  HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Height="21" Grid.Column="2"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Поставщики">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnDeleteSupplier" Content="Удалить запись" HorizontalAlignment="Center" VerticalAlignment="Top" Height="32" Width="156" Margin="0,10,0,0" Click="btnDeleteSupplier_Click_1"/>
+                    <Button x:Name="btnUpdateSupplier" Content="Редактировать запись" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="32" Width="156" Margin="0,10,0,0" Click="btnUpdateSupplier_Click"/>
+                    <Button x:Name="btnAddSupplier" Content="Добавить запись" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="32" Width="156" Margin="0,10,0,0" Click="btnAddSupplier_Click"/>
+
+                    <DataGrid Loaded="dgSupplier_Loaded" x:Name="dgSupplier" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3" Margin="10,67,10,214" SelectionChanged="dgSupplier_SelectionChanged"/>
+
+                    <TextBox x:Name="tbNameSupplier" FontSize="12" HorizontalAlignment="Center" Margin="0,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <TextBox x:Name="tbOGRNSupplier" MaxLength="13" PreviewTextInput="TextBox_PreviewTextInput" HorizontalAlignment="Center" Margin="0,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <TextBox x:Name="tbINNSupplier" MaxLength="12" PreviewTextInput="TextBox_PreviewTextInput" HorizontalAlignment="Center" Margin="0,244,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="2"/>
+                    <TextBox x:Name="tbKPPSupplier" MaxLength="9" PreviewTextInput="TextBox_PreviewTextInput" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <TextBox x:Name="tbLegalAddressSupplier" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <TextBox IsReadOnly="True" Background="#CCCCCC" HorizontalAlignment="Center" Margin="0,293,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="2"/>
+                    <Label FontWeight="Bold" Content="Наименование поставщика" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top"/>
+                    <Label FontWeight="Bold" Content="ОГРН" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="ИНН" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Label FontWeight="Bold" Content="КПП" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top"/>
+                    <Label FontWeight="Bold" Content="Юридический адрес" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="txtSupplier" TextChanged="txtSupplier_TextChanged"  HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Height="21" Grid.Column="2"/>
+                </Grid>
+
+
+            </TabItem>
+            <TabItem Header="Поставка продукци">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Loaded="dgSupplyProducts_Loaded" x:Name="dgSupplyProducts" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3" Margin="10,67,10,214" SelectionChanged="dgSupplyProducts_SelectionChanged" />
+                    <Button x:Name="btnDeleteSupplyProd" Content="Удалить запись" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="32" Width="156" Margin="0,10,0,0" Click="btnDeleteSupplyProd_Click"/>
+                    <Button x:Name="btnUpdateSupplyProd" Content="Редактировать запись" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="32" Width="156" Margin="0,10,0,0" Grid.Column="1" Click="btnUpdateSupplyProd_Click"/>
+                    <Button x:Name="btnAddSupplyProd" Content="Добавить запись" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="32" Width="156" Margin="0,10,0,0" Grid.Column="2" Click="btnAddSupplyProd_Click"/>
+                    <TextBox x:Name="tbNumberSupply" HorizontalAlignment="Center" Margin="0,244,0,0" Width="185" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" />
+                    <ComboBox x:Name="cbConractSupply" Loaded="cbConractSupply_Loaded" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <ComboBox x:Name="cbEmployee" Loaded="cbEmployee_Loaded" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="2"/>
+                    <ComboBox x:Name="cbStatus" Loaded="cbStatus_Loaded" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="Номер поставки продукции" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top"/>
+                    <Label FontWeight="Bold" Content="Договор поставки продукции" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="Ответственный сотрудник" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Label FontWeight="Bold" Content="Статус поставки" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="txtSupplyProducts" TextChanged="txtSupplyProducts_TextChanged"  HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Height="21" Grid.Column="2"/>
+
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Продукция в наличии">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Loaded="dgProductsInStock_Loaded" x:Name="dgProductsInStock" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3" Margin="0,66,20,215" SelectionChanged="dgProductsInStock_SelectionChanged"  />
+                    <Button x:Name="btnDeleteproductsInStock" Content="Удалить запись" HorizontalAlignment="Center" Height="32" Width="156" Margin="0,10,0,0" VerticalAlignment="Top" Click="btnDeleteproductsInStock_Click"/>
+                    <Button x:Name="btnUpdateproductsInStock" Content="Редактировать запись" HorizontalAlignment="Center" Height="32" Width="156" Margin="0,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="btnUpdateproductsInStock_Click"/>
+                    <Button x:Name="btnAddproductsInStock" Content="Добавить запись" HorizontalAlignment="Center" Height="32" Width="156" Margin="0,10,0,0" VerticalAlignment="Top" Grid.Column="2" Click="btnAddproductsInStock_Click"/>
+                    <TextBox x:Name="tbNamePosition" HorizontalAlignment="Center" Margin="0,244,0,0" Width="185" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" />
+                    <Label FontWeight="Bold" Content="Наименование позиции" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbQuantityStock" HorizontalAlignment="Center" Margin="0,244,0,0" Width="185" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column="1" />
+                    <Label FontWeight="Bold" Content="Количество в наличии" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <ComboBox x:Name="cbSupplyProducts" Loaded="cbSupplyProducts_Loaded"  HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="2"/>
+                    <Label FontWeight="Bold" Content="Номер поставки" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26"/>
+                    <TextBox x:Name="txtProudctsInStock" TextChanged="txtProudctsInStock_TextChanged"  HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Height="21" Grid.Column="2"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Продажи">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Loaded="dgSale_Loaded" x:Name="dgSale" IsReadOnly="True" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3" Margin="0,66,20,215" SelectionChanged="dgSale_SelectionChanged" />
+                    <Button x:Name="btnDeleteSale" Content="Удалить запись" HorizontalAlignment="Center" Height="32" Width="156" Margin="0,10,0,0" VerticalAlignment="Top" Click="btnDeleteSale_Click" />
+                    <Button x:Name="btnUpdateSale" Content="Редактировать запись" HorizontalAlignment="Center" Height="32" Width="156" Margin="0,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="btnUpdateSale_Click" />
+                    <Button x:Name="btnAddSale" Content="Добавить запись" HorizontalAlignment="Left" Height="32" Width="156" Margin="30,10,0,0" VerticalAlignment="Top" Grid.Column="2" Click="btnAddSale_Click" />
+                    <TextBox x:Name="tbNumberSale" HorizontalAlignment="Center" Margin="0,244,0,0" Width="185" Height="21" TextWrapping="Wrap" Text="" VerticalAlignment="Top" />
+                    <ComboBox x:Name="cbPosiiton" Loaded="cbPosiiton_Loaded" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="Номер продажи" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top"/>
+                    <Label FontWeight="Bold" Content="Позиция товара" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="txtSales" TextChanged="txtSales_TextChanged"  HorizontalAlignment="Left" Margin="30,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Height="21" Grid.Column="2"/>
+
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

@@ -1,0 +1,83 @@
+﻿<Window x:Class="OP.PRACTICAL_WORK_7.AccountantWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OP.PRACTICAL_WORK_7"
+        mc:Ignorable="d"
+        Title="AccountantWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="Заработные платы">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <DataGrid Loaded="dgSalary_Loaded" x:Name="dgSalary" CanUserAddRows="False" IsReadOnly="True"  d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3" Margin="10,67,10,214" SelectionChanged="dgSalary_SelectionChanged"/>
+                    <Button x:Name="btnDeleteSalary" Content="Удалить запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Click="btnDeleteSalary_Click"/>
+                    <Button x:Name="btnUpdateSalary" Content="Редактировать запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Grid.Column="1" Click="btnUpdateSalary_Click"/>
+                    <Button x:Name="btnAddSalary" Content="Добавить запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Grid.Column="2" Click="btnAddSalary_Click"/>
+                    <TextBox x:Name="tbSalaryAmount" HorizontalAlignment="Center" Margin="0,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <Label FontWeight="Bold" Content="Размер оклада" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top"/>
+                    <ComboBox Loaded="cbEmployeeSalary_Loaded" x:Name="cbEmployeeSalary" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="Сотрудник" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="txtSalary" TextChanged="txtSalary_TextChanged" HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Height="21" Grid.Column="2"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Выплаты">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Loaded="dgEmployeePayments_Loaded" x:Name="dgEmployeePayments" CanUserAddRows="False" IsReadOnly="True"  d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3" Margin="10,67,10,214" SelectionChanged="dgEmployeePayments_SelectionChanged" />
+                    <Button x:Name="btnDeleteEmployeePay" Content="Удалить запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Click="btnDeleteEmployeePay_Click" />
+                    <Button x:Name="btnUpdateEmployeePay" Content="Редактировать запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Grid.Column="1" Click="btnUpdateEmployeePay_Click" />
+                    <Button x:Name="btnAddEmployeePay" Content="Добавить запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Grid.Column="2" Click="btnAddEmployeePay_Click" />
+                    <TextBox x:Name="tbDatePay" HorizontalAlignment="Center" Margin="0,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <Label FontWeight="Bold" Content="Дата выплаты" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbPrizePay" HorizontalAlignment="Center" Margin="0,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="Размер премии" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="tbFinePay" HorizontalAlignment="Center" Margin="0,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="2"/>
+                    <Label FontWeight="Bold" Content="Корретировка зарплаты" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <ComboBox x:Name="cbSalaryPay" Loaded="cbSalaryPay_Loaded" HorizontalAlignment="Left" Margin="15,293,0,0" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <Label FontWeight="Bold" Content="Зарплата" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbFinalPay" HorizontalAlignment="Center" Margin="0,295,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1"/>
+                    <Label FontWeight="Bold" Content="Итоговая сумма" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="txtPayments" TextChanged="txtPayments_TextChanged_1" HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Height="21" Grid.Column="2"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Налоговые отчисления">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Loaded="dgTaxDeductions_Loaded" x:Name="dgTaxDeductions" CanUserAddRows="False" IsReadOnly="True"  d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="3" Margin="10,67,10,214" SelectionChanged="dgTaxDeductions_SelectionChanged" />
+                    <Button x:Name="btnDeleteTax" Content="Удалить запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Click="btnDeleteTax_Click"  />
+                    <Button x:Name="btnUpdateTax" Content="Редактировать запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Grid.Column="1" Click="btnUpdateTax_Click_1"  />
+                    <Button x:Name="btnAddTax" Content="Добавить запись" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="156" Grid.Column="2" Click="btnAddTax_Click_1"  />
+                    <TextBox x:Name="tbAmountTax" HorizontalAlignment="Center" Margin="0,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="185" Height="21"/>
+                    <Label FontWeight="Bold" Content="Размер налога" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top"/>
+                    <ComboBox Loaded="cbTaxAmoubtPay_Loaded" x:Name="cbTaxAmoubtPay" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Width="185" Height="21" Grid.Column="1" SelectionChanged="cbTaxAmoubtPay_SelectionChanged"/>
+                    <Label FontWeight="Bold" Content="Сотрудник и зарплата" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="txtTaxDeductions" TextChanged="txtTaxDeductions_TextChanged" HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Height="21" Grid.Column="2"/>
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
