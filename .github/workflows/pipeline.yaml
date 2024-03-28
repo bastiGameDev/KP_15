@@ -26,4 +26,4 @@ jobs:
 
       - name: Run Roslynator
         run: |
-          dotnet roslynator analyze --project ./OP.PRACTICAL_WORK_7
+          dotnet roslynator analyze --project OP.PRACTICAL_WORK_7
