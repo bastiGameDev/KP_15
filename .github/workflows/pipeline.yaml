@@ -1,21 +1,25 @@
-# pipeline.yaml
+name: WPF_Style_Check
 
-stages:
-  - name: syntax_check
-    jobs:
-      - name: check_csharp_syntax
-        steps:
-          - name: checkout_code
-            script: echo "Checking out code"
-          - name: compile_code
-            script: |
-              csc.exe /t:library temp.cs
-              exit_code=$?
-              if [ $exit_code -eq 0 ]; then
-                echo "Compilation successful"
-              else
-                echo "Compilation failed with exit code $exit_code"
-                exit 1
-              fi
-          - name: check_syntax
-            script: echo "Syntax check passed"
+on:
+  push:
+    branches:
+      - main  # Здесь укажите вашу основную ветку
+
+jobs:
+  check_style:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'  # Укажите актуальную версию .NET SDK
+
+      - name: Install StyleCopAnalyzers
+        run: dotnet add package StyleCop.Analyzers --version 1.3.2  # Укажите актуальную версию пакета StyleCop.Analyzers
+
+      - name: Check code style
+        run: dotnet build /p:StyleCopEnabled=true /p:StyleCopConfig=.stylecop.json  # Укажите имя вашего файла с настройками StyleCop
