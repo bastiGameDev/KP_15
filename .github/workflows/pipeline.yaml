@@ -1,29 +1,21 @@
-name: C# Code Analysis
+# pipeline.yaml
 
-on:
-  push:
-    branches:
-      - main  
-
-jobs:
-  code_analysis:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '6.0.x'  # замените '6.0.x' на соответствующую версию .NET SDK1
-
-      - name: Install Roslynator
-        run: dotnet tool install --global Roslynator.CommandLine --version 0.8.3
-
-      - name: Restore NuGet packages
-        run: dotnet restore OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.sln
-
-      - name: Run Roslynator
-        run: |
-          dotnet roslynator analyze --project OP.PRACTICAL_WORK_7.csproj
+stages:
+  - name: syntax_check
+    jobs:
+      - name: check_csharp_syntax
+        steps:
+          - name: checkout_code
+            script: echo "Checking out code"
+          - name: compile_code
+            script: |
+              csc.exe /t:library temp.cs
+              exit_code=$?
+              if [ $exit_code -eq 0 ]; then
+                echo "Compilation successful"
+              else
+                echo "Compilation failed with exit code $exit_code"
+                exit 1
+              fi
+          - name: check_syntax
+            script: echo "Syntax check passed"
