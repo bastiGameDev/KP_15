@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.csproj
 
       - name: Install Roslynator
-        run: dotnet tool install --global Roslynator.CommandLine --version 3.0.0  
+        run: dotnet tool install --global Roslynator.CommandLine --version 0.8.4
 
       - name: Run Roslynator
         run: |
