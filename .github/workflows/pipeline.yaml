@@ -18,8 +18,8 @@ jobs:
         with:
           dotnet-version: '6.0.x'  # замените '6.0.x' на соответствующую версию .NET SDK
 
-      - name: Change directory to OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
-        run: cd OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
+      #- name: Change directory to OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
+      #  run: cd OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
 
       - name: Restore NuGet packages
         run: dotnet restore OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.sln
