@@ -19,7 +19,7 @@ jobs:
           dotnet-version: '6.0.x'  # замените '6.0.x' на соответствующую версию .NET SDK
 
       - name: Restore NuGet packages
-        run: dotnet restore
+        run: dotnet restore OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.csproj
 
       - name: Install Roslynator
         run: dotnet tool install --global Roslynator.CommandLine --version 3.0.0  
