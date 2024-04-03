@@ -19,14 +19,14 @@ jobs:
           dotnet-version: '6.0.x'  # замените '6.0.x' на соответствующую версию .NET SDK
 
       - name: Change directory to project folder
-        run: cd OP.PRACTICAL_WORK_7
+        run: cd OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
 
       - name: Add StyleCop.Analyzers package
         run: dotnet add package StyleCop.Analyzers --version 1.1.118
 
       - name: Restore NuGet packages
-        run: dotnet restore OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.sln
+        run: dotnet restore OP.PRACTICAL_WORK_7.sln
 
       - name: Run Roslynator
         run: |
-          dotnet roslynator analyze --project OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.csproj
+          dotnet roslynator analyze --project OP.PRACTICAL_WORK_7.csproj
