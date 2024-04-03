@@ -13,7 +13,8 @@ using System.Windows;
 
         public static string Users_ID = "null", Password = "null", App_Name = "Администратор - Продажа товара";
         
-        public static string ConnectionStrig = string.Format("Data Source = {0}; Initial Catalog = {1}; Integrated Security = true;", DS, IC, "; Persist Security Info = true; User ID = sa; Password = 123");
+        public static string ConnectionStrig = string.Format("Data Source = {0}; Initial Catalog = {1}; Integrated Security = true;", 
+            DS, IC, "; Persist Security Info = true; User ID = sa; Password = 123");
 
         public SqlConnection connection = new SqlConnection(ConnectionStrig);
        

@@ -32,13 +32,10 @@ namespace OP.PRACTICAL_WORK_7
         {
             using (var sha256 = SHA256.Create())
             {
-                // Преобразуем строку в байты
                 byte[] bytes = Encoding.UTF8.GetBytes(password);
 
-                // Хэшируем байты
                 byte[] hashedBytes = sha256.ComputeHash(bytes);
 
-                // Преобразуем байты в строку и возвращаем результат
                 return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
             }
         }
