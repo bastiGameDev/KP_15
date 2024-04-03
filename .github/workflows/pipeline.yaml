@@ -22,7 +22,7 @@ jobs:
         run: cd OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
 
       - name: Restore NuGet packages
-        run: dotnet restore OP.PRACTICAL_WORK_7.sln
+        run: dotnet restore OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.sln
 
       - name: Install Roslynator
         run: dotnet tool install --global Roslynator.CommandLine --version 0.8.4
