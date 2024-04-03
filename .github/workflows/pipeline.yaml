@@ -21,10 +21,7 @@ jobs:
       - name: Install StyleCopAnalyzers
         run: dotnet add OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.csproj package StyleCop.Analyzers --version 1.2.0-beta.556
 
-
       - name: Check code style
-        run: dotnet build /p:StyleCopEnabled=true /p:StyleCopConfig=.stylecop.json  # Укажите имя вашего файла с настройками StyleCop
-
-        - name: Build project with StyleCop enabled
-          run: dotnet build OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.csproj /p:StyleCopEnabled=true /p:StyleCopConfig=.stylecop.json
-
+        run: |
+          cd OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
+          dotnet build /p:StyleCopEnabled=true /p:StyleCopConfig=.stylecop.json
