@@ -18,14 +18,15 @@ jobs:
         with:
           dotnet-version: '6.0.x'  # замените '6.0.x' на соответствующую версию .NET SDK
 
+      - name: Change directory to OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
+        run: cd OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
+
       - name: Restore NuGet packages
-        run: dotnet restore OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.sln
+        run: dotnet restore OP.PRACTICAL_WORK_7.sln
 
       - name: Install Roslynator
-        run: dotnet add package Roslynator.CommandLine
+        run: dotnet tool install --global Roslynator.CommandLine --version 0.8.4
 
       - name: Run Roslynator
         run: |
-          dotnet roslynator analyze --project OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7
-
-
+          dotnet roslynator analyze --project OP.PRACTICAL_WORK_7.csproj
