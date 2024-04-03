@@ -16,7 +16,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '7.0.304'  # замените '6.0.x' на соответствующую версию .NET SDK
+          dotnet-version: '6.0.x'  # замените '6.0.x' на соответствующую версию .NET SDK
 
       - name: Restore NuGet packages
         run: dotnet restore
