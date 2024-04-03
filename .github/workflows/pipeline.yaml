@@ -24,3 +24,7 @@ jobs:
 
       - name: Check code style
         run: dotnet build /p:StyleCopEnabled=true /p:StyleCopConfig=.stylecop.json  # Укажите имя вашего файла с настройками StyleCop
+
+        - name: Build project with StyleCop enabled
+          run: dotnet build OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.csproj /p:StyleCopEnabled=true /p:StyleCopConfig=.stylecop.json
+
