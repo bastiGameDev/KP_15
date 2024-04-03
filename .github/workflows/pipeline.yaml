@@ -18,12 +18,11 @@ jobs:
         with:
           dotnet-version: '6.0.x'  # замените '6.0.x' на соответствующую версию .NET SDK
 
-      - name: Install Roslynator
-        run: dotnet tool install --global Roslynator.CommandLine --version 0.8.3
+      - name: Install StyleCop.Analyzers
+        run: dotnet add package StyleCop.Analyzers --version 1.1.118
 
       - name: Restore NuGet packages
         run: dotnet restore OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.sln
 
-      - name: Run Roslynator
-        run: |
-          dotnet roslynator analyze --project OP.PRACTICAL_WORK_7.csproj
+      - name: Run StyleCop.Analyzers
+        run: dotnet build OP.PRACTICAL_WORK_7/OP.PRACTICAL_WORK_7.sln --no-incremental
